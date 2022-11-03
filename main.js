@@ -53,16 +53,9 @@ function createCard (date,day, games){
 </div>
      `
 }
-document.querySelector('#app').innerHTML = `
-<header>
-<img src="./assets/logo.svg" alt="">
-</header>
-<main id="cards">
-    ${createCard("24/11","quinta", createGame("brazil","16:00","serbia") + createGame("portugal","17:00","switzerland")
-    
-    
-    )} 
-    ${createCard("28/11","segunda", createGame("brazil","13:00","switzerland"))}
-    ${createCard("02/12","sexta", createGame("brazil","16:00", "cameroon"))}
-</main>
-`
+document.querySelector("#cards").innerHTML = 
+    createCard("24/11","quinta", 
+        createGame("brazil","16:00","serbia") + 
+        createGame("portugal","17:00","switzerland"))   + 
+    createCard("28/11","segunda", createGame("brazil","13:00","switzerland")) +
+    createCard("02/12","sexta", createGame("brazil","16:00", "cameroon"))

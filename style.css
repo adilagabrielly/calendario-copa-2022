@@ -113,12 +113,33 @@ header{
 
 
 }
-
-
-
 .card ul li strong {
     font-weight: 900;    
     font-size: 36px; /*tamanho da fonte*/
     line-height: 125%; /*altura da linha */
     color: #E1E1E6;
+}
+.card h2:hover,
+.card ul li strong:hover,
+.card ul li img:hover {
+    transform: scale(1.2) ;
+
+}
+.card h2,
+.card ul li strong,
+.card ul li img {
+    transition: transform 0.2s;
+} 
+.card {
+    animation: appear 7s;
+}
+
+@keyframes appear {
+    0% {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
