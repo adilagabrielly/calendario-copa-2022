@@ -1,0 +1,124 @@
+* {
+    margin: 0; /*remove as margens */
+    padding: 0; /*remove todos os preenchimentos de borda*/
+}
+
+ul{
+    list-style: none;
+}
+
+body{
+    background-color: #121214;
+    background-image: url(./assets/background.svg) ;
+    background-position-x: center; /*ajuste da tela no posição horizontal */
+    background-position-y: 73%; /*ajuste da tela no posição vertical */
+}
+
+body * {
+    font-family: 'Roboto',  sans-serif;
+
+}
+#app {
+    /*border: 2px solid red;*/
+
+    width: fit-content; /*fit-content: encaixar o conteúdo */
+    margin: 52px auto; /*margem do bloco ao início da tela: 52 top | automático centralizado nas laterais */ 
+}
+
+header{
+    text-align: center;
+    /*border: 1px solid yellow;*/ /*borda header*/
+    margin-bottom: 63px; /* margem pra baixo do cabeçalho */
+}
+#cards {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+}
+/*card completo do dia */
+.card { 
+    /*border: purple solid; Para marcar o bloco visivelmente | automaticamente já é marcado se for definido a borda e colocado solid */
+    padding: 32px 23px;
+    text-align: center;
+
+    /*copiado do figma:*/
+    background: #1D1C19;
+    border-bottom: 2px solid #F7DD43; /* borda abaixo*/
+    border-radius: 6px; /* curva da borda de baixo*/     
+}
+
+/*data e dia*/ 
+.card h2 {
+    display: flex;
+    padding: 8px 16px; /* altura: cima e baixo/lateral: direita e esquerda*/ 
+    border: 1px solid #746615;
+    border-radius: 6px;
+    gap: 16px;
+    align-items: center; /*Ajusta o alinhamento em todos os eixos*/ 
+    justify-content: center; /*Ajustar o conteúdo do quadro*/
+    width: fit-content;
+    margin-inline: auto;
+    margin-bottom: 53px;
+
+    color: #F7DD43;
+    
+    
+    
+    /*font-family: 'Roboto'; */
+   /* font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 125%;*/
+    
+    
+}
+/* h2 {
+    border: 1px solid yellow;
+    border-radius: 3px;
+    color: yellowgreen;
+    margin-bottom: 20px;
+    padding: 0px;
+} */
+
+
+
+/*Especificidade */
+.card h2 span {
+    color: #E1E1E6;
+    font-size: 14px;
+    text-transform: uppercase; /*tudo em maiúsculo*/
+}
+
+.card ul {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    width: 270px;
+}
+
+.card ul li {
+    /*marcação do li - lista */
+    /*border: 1px solid yellow ;*/
+    margin-bottom: 5px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /*espaço entre os itens*/
+}
+.card ul li + li {   /*colocar o li que tenha um li antes */
+    padding-top: 24px;
+    border-top: 1px solid #323238;
+
+
+}
+
+
+
+.card ul li strong {
+    font-weight: 900;    
+    font-size: 36px; /*tamanho da fonte*/
+    line-height: 125%; /*altura da linha */
+    color: #E1E1E6;
+}
