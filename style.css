@@ -3,26 +3,49 @@
     padding: 0; /*remove todos os preenchimentos de borda*/
 }
 
-ul{
-    list-style: none;
+:root {
+    --card-title-border-color: #746615;
+    --card-color-primary: #f7dd43;
+    --card-bg-color: #1D1C19 ;
+    --card-bg-imagem: url(assets/bg-yellow.svg)
 }
 
+body.blue {
+    --card-title-border-color: #338AF3;
+    --card-color-primary: #338AF3;
+    --card-bg-color: #202024 ;
+    --card-bg-imagem: url(assets/bg-blue.svg);
+}
+
+body.green {
+    --card-title-border-color: #047C3f;
+    --card-color-primary: #047C3f;
+    --card-bg-color: #1a1f1b ;
+    --card-bg-imagem: url(assets/bg-green.svg);
+}
+
+ul { /*não aparece as bolinhas da lista*/ 
+    list-style: none;
+} 
+
 body{
-    background-color: #121214;
-    background-image: url(./assets/background.svg) ;
-    background-position-x: center; /*ajuste da tela no posição horizontal */
-    background-position-y: 73%; /*ajuste da tela no posição vertical */
+    background-color: var(--card-bg-color);
+    background-image: var(--card-bg-imagem);
+    background-position: center; /*ajuste da tela no posição horizontal */
+   /* background-position-y: 73%; /*ajuste da tela no posição vertical */
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 body * {
     font-family: 'Roboto',  sans-serif;
-
 }
 #app {
     /*border: 2px solid red;*/
 
     width: fit-content; /*fit-content: encaixar o conteúdo */
-    margin: 52px auto; /*margem do bloco ao início da tela: 52 top | automático centralizado nas laterais */ 
+    margin: auto; /*margem do bloco ao início da tela: 52 top | automático centralizado nas laterais */ 
+    padding-top: 52px;
 }
 
 header{
@@ -43,8 +66,8 @@ header{
     text-align: center;
 
     /*copiado do figma:*/
-    background: #1D1C19;
-    border-bottom: 2px solid #F7DD43; /* borda abaixo*/
+    background: var(--card-bg-color);
+    border-bottom: 2px solid var(--card-color-primary); /* borda abaixo*/
     border-radius: 6px; /* curva da borda de baixo*/     
 }
 
@@ -52,7 +75,7 @@ header{
 .card h2 {
     display: flex;
     padding: 8px 16px; /* altura: cima e baixo/lateral: direita e esquerda*/ 
-    border: 1px solid #746615;
+    border: 1px solid var(--card-title-border-color);
     border-radius: 6px;
     gap: 16px;
     align-items: center; /*Ajusta o alinhamento em todos os eixos*/ 
@@ -61,7 +84,7 @@ header{
     margin-inline: auto;
     margin-bottom: 53px;
 
-    color: #F7DD43;
+    color: #f7dd43;
     
     
     
@@ -119,27 +142,41 @@ header{
     line-height: 125%; /*altura da linha */
     color: #E1E1E6;
 }
-.card h2:hover,
-.card ul li strong:hover,
-.card ul li img:hover {
-    transform: scale(1.2) ;
+/*Transição  | Aumento dos itens */
+    .card h2:hover,
+    .card ul li strong:hover,
+    .card ul li img:hover {
+        transform: scale(1.2) ;
 
-}
-.card h2,
-.card ul li strong,
-.card ul li img {
+    }
+    .card h2,
+    .card ul li strong,
+    .card ul li img {
     transition: transform 0.2s;
 } 
 .card {
-    animation: appear 7s;
+    opacity: 0;
+    animation: appear 0.3s  forwards;
 }
-
+/*
+.card::nth-child(1){
+    animation-delay: .8s;
+}
+*/
 @keyframes appear {
     0% {
-        transform: translateY(-50px);
+        transform: translateY(-30px);
         opacity: 0;
     }
     100% {
         opacity: 1;
+    }
+}
+
+@media (min-width: 700px){
+    #cards {
+        max-width: auto; /*encaixa automaticamente na largura da tela */
+        flex-direction: row;
+        flex-wrap: wrap;
     }
 }
